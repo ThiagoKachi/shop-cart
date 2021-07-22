@@ -18,13 +18,15 @@ export function Card() {
   return (
     <Container>
       <p onClick={getProduts}>teste</p>
-        {productsDetail.map(({ title, thumbnail, price, id, original_price, permalink }) => (
+        {productsDetail.map(({ title, thumbnail, price, id, original_price }) => (
           <div className="card" key={ id }>
             <img src={ thumbnail } alt="Foto do produto" />
             <div className="infos">
               <h1>{ title }</h1>
-              {original_price === null ? '' : <span className="original_price">{original_price}</span>}
-              <p>{ price }</p>
+              <div className="prices">
+                <p>R$ { price }</p>
+                {original_price === null ? '' : <span className="original_price">R$ {original_price}</span>}
+              </div>
               <button>Adicionar ao carrinho</button>
             </div>
           </div>
@@ -34,5 +36,7 @@ export function Card() {
   )
 }
 
-// Guardar o valor digitado no input em um estado, no componente Search
-// Compartilhar esse estado com o component Card e colocá-lo na chamada da api
+// Fazer o botao de busca funcionar
+// Pegar o id do produto ao clicar em "Adicionar ao carrinho"
+// usar esse id no carrinho para buscar infos do produto
+// Usar o endpoint "https://api.mercadolibre.com/items/$ItemID"
