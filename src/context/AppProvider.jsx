@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AppContext } from './AppContext';
 
 import { getProductsList } from '../services';
@@ -11,10 +11,18 @@ export function Provider({ children }) {
 
   async function getProduts() {
     setLoading(true);
-    const productsList = await getProductsList(productName);
+    const productsList = await getProductsList(productName  === '' ? 'informatica' : productName);
     setProductDetail(productsList);
     setLoading(false);
   }
+
+  useEffect(() => {
+    async function getProdutsListToHome() {
+      const productsList = await getProductsList('informatica');
+      setProductDetail(productsList);
+    }
+    getProdutsListToHome()
+  },[productName])
 
   const providerProductName = {
     productName,
