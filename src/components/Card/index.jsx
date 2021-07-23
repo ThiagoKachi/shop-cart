@@ -1,26 +1,14 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 
-import { getProductsList } from '../../services';
 import { AppContext } from '../../context/AppContext';
 
 import { Container } from './styles';
 
 export function Card() {
-  const { productName } = useContext(AppContext)
-
-  const [productsDetail, setProductDetail] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  async function getProduts() {
-    setLoading(true);
-    const productsList = await getProductsList(productName);
-    setProductDetail(productsList);
-    setLoading(false);
-  }
+  const { loading, productsDetail } = useContext(AppContext)
 
   return (
     <Container>
-      <p onClick={getProduts}>teste</p>
       {!loading ? (
         productsDetail.map(({ title, thumbnail, price, id, original_price }) => (
           <div className="card" key={ id }>
@@ -40,8 +28,3 @@ export function Card() {
     </Container>
   )
 }
-
-// Fazer o botao de busca funcionar
-// Pegar o id do produto ao clicar em "Adicionar ao carrinho"
-// usar esse id no carrinho para buscar infos do produto
-// Usar o endpoint "https://api.mercadolibre.com/items/$ItemID"

@@ -6,7 +6,7 @@ import searchImg from '../../assets/loupe.png'
 import { AppContext } from '../../context/AppContext';
 
 export function Search() {
-  const { productName, setProductName } = useContext(AppContext)
+  const { productName, setProductName, getProduts } = useContext(AppContext)
 
   return (
     <Container>
@@ -16,7 +16,7 @@ export function Search() {
         value={ productName }
         onChange={(e) => setProductName(e.target.value)}
       />
-      <button>
+      <button type="button" onClick={ getProduts }>
         <img src={ searchImg } alt="Search" />
       </button>
     </Container>
