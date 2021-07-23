@@ -15,6 +15,7 @@ export const Container = styled.div`
     background: white;
     border-radius: 6px;
     border: 1px solid lightgray;
+    padding: 5px;
   }
   
   img {

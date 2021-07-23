@@ -1,14 +1,12 @@
 import React from 'react';
 
-import { Header } from './components/Header';
-import { Card } from './components/Card';
 import { Provider } from './context/AppProvider';
+import { Home } from './components/Home';
 
 function App() {
   return (
     <Provider>
-      <Header />
-      <Card />
+      <Home />
     </Provider>
   );
 }
