@@ -7,6 +7,7 @@ export const Container = styled.div`
   margin-top: 40px;
   
   font-family: 'Encode Sans SC', sans-serif;
+  position: relative;
   
   .card {
     display: flex;
@@ -69,5 +70,21 @@ export const Container = styled.div`
 
   button:hover {
     filter: brightness(0.95);
+  }
+
+  .spinner {
+    border: 8px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #4F4F4F;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    top: 100px;
+    left: 580px;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
   }
 `;
