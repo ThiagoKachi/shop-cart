@@ -9,16 +9,20 @@ export function Card() {
   const { productName } = useContext(AppContext)
 
   const [productsDetail, setProductDetail] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   async function getProduts() {
+    setLoading(true);
     const productsList = await getProductsList(productName);
     setProductDetail(productsList);
+    setLoading(false);
   }
 
   return (
     <Container>
       <p onClick={getProduts}>teste</p>
-        {productsDetail.map(({ title, thumbnail, price, id, original_price }) => (
+      {!loading ? (
+        productsDetail.map(({ title, thumbnail, price, id, original_price }) => (
           <div className="card" key={ id }>
             <img src={ thumbnail } alt="Foto do produto" />
             <div className="infos">
@@ -30,8 +34,9 @@ export function Card() {
               <button>Adicionar ao carrinho</button>
             </div>
           </div>
-        ))}
-        {console.log(productsDetail)}
+        ))
+      ) : <span className="spinner"></span>}
+      {console.log(productsDetail)}
     </Container>
   )
 }
