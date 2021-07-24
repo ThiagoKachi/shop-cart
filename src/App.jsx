@@ -1,13 +1,20 @@
 import React from 'react';
 
-import { Provider } from './context/AppProvider';
+import { Switch, Route } from 'react-router-dom';
+
 import { Home } from './components/Home';
+import { Cart } from './components/Cart';
 
 function App() {
   return (
-    <Provider>
-      <Home />
-    </Provider>
+    <Switch>
+      <Route exact path="/">
+        <Home />
+      </Route>
+      <Route path="/cart">
+        <Cart />
+      </Route>
+    </Switch>
   );
 }
 

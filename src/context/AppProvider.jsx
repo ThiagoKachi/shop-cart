@@ -11,14 +11,14 @@ export function Provider({ children }) {
 
   async function getProduts() {
     setLoading(true);
-    const productsList = await getProductsList(productName  === '' ? 'informatica' : productName);
+    const productsList = await getProductsList(productName  === '' ? 'iphone' : productName);
     setProductDetail(productsList);
     setLoading(false);
   }
 
   useEffect(() => {
     async function getProdutsListToHome() {
-      const productsList = await getProductsList('informatica');
+      const productsList = await getProductsList('iphone');
       setProductDetail(productsList);
     }
     getProdutsListToHome()
