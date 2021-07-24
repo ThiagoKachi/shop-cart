@@ -5,3 +5,10 @@ export async function getProductsList(product) {
   const { data } = currencyResult
   return data.results;
 }
+
+export async function getProductsInfo(product) {
+  const currencyResult = await axios.get(`https://api.mercadolibre.com/items/${product}`)
+  const { data } = currencyResult
+  return data;
+}
+
