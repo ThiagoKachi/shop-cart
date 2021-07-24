@@ -8,12 +8,17 @@ export function Provider({ children }) {
 
   const [productsDetail, setProductDetail] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [idProduct, setIdProduct] = useState([]);
 
   async function getProduts() {
     setLoading(true);
-    const productsList = await getProductsList(productName === '' ? 'iphone' : productName);
+    const productsList = await getProductsList(productName === '' ? 'iphone' : productName); // Fazer modificação
     setProductDetail(productsList);
     setLoading(false);
+  }
+
+  function getProductsId(id) {
+    setIdProduct([id, ...idProduct])
   }
 
   useEffect(() => {
@@ -29,7 +34,9 @@ export function Provider({ children }) {
     setProductName,
     productsDetail,
     loading,
-    getProduts
+    getProduts,
+    getProductsId,
+    idProduct
   }
 
   return (

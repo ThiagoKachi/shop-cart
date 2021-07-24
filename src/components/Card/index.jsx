@@ -1,16 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 
 import { AppContext } from '../../context/AppContext';
 
 import { Container } from './styles';
 
 export function Card() {
-  const { loading, productsDetail } = useContext(AppContext)
-  const [idProduct, setIdProduct] = useState([]);
-
-  function getProductsId(id) {
-    setIdProduct([id, ...idProduct])
-  }
+  const { loading, productsDetail, getProductsId, idProduct } = useContext(AppContext)
 
   return (
     <Container>
