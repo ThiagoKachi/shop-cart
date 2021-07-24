@@ -1,36 +1,19 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 
 import { Header } from '../Header';
 import { AppContext } from '../../context/AppContext';
-import { getProductsInfo } from '../../services';
 
 export function Cart() {
-  const { idProduct } = useContext(AppContext)
-  const [endPointResultPromise, setEndPointResultPromise] = useState([]);
-  const [endPointResultProcessed, setEndPointResultProcessed] = useState([]);
-  
-  useEffect(() => {
-    async function getProductsInfoFromApi() {
-      const endpointResultFromIds = await idProduct.map((product) => getProductsInfo(product))
-      setEndPointResultPromise(endpointResultFromIds) // Retorna os valores como Promise
-    }
+  const { endPointResultProcessed } = useContext(AppContext)
 
-    getProductsInfoFromApi();
-  }, [idProduct])
-
-  useEffect(() => {
-    async function aaa() {
-      const resultado = await Promise.all(endPointResultPromise); // Trata os valores que retornam como Promise
-      setEndPointResultProcessed(resultado)
-    };
-
-    aaa();
-  }, [endPointResultPromise])
+  const cartEmptyText = <p className="emptyCart">O seu carrinho está vazio <span>Não sabe o que comprar? Milhões de produtos esperam por você!</span></p>
 
   return (
     <>
       <Header />
-      {endPointResultProcessed.map((product) => <p key={product.id}>{product.title}</p>)}
+      {endPointResultProcessed.length === 0 ? <p>{cartEmptyText}</p> : (
+        endPointResultProcessed.map((product, key) => <p key={key}>{product.title}</p>)
+      )}
     </>
   )
 }
