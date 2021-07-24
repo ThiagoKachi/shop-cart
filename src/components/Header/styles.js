@@ -28,8 +28,12 @@ export const Container = styled.div`
   }
 
   .cart {
-    display: flex;
-    align-items: center;
+    .image-title {
+      display: flex;
+      align-items: flex-end;
+      position: relative;
+      margin-right: 50px
+    }
 
     p {
       font-family: 'Encode Sans SC', sans-serif;
@@ -40,6 +44,24 @@ export const Container = styled.div`
     img {
       width: 30px;
       cursor: pointer;
+      position: absolute;
+      top: 4px;
+      left: 126px;
     }
+
+    span {
+      font-size: 14px;
+      margin-left: 40px;
+      color: #363636;
+      font-weight: 500;
+      font-family: 'Encode Sans SC', sans-serif;
+      margin-top: 10px;
+    }
+  }
+
+  .my-cart-title {
+    font-size: 34px;
+    font-family: 'Encode Sans SC', sans-serif;
+    color: #363636;
   }
 `;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { AppContext } from './AppContext';
 
-import { getProductsList } from '../services';
+import { getProductsList, getProductsInfo } from '../services';
 
 export function Provider({ children }) {
   const [productName, setProductName] = useState('');
@@ -29,6 +29,30 @@ export function Provider({ children }) {
     getProdutsListToHome()
   },[productName])
 
+  // Cart logic -------------
+  const [endPointResultPromise, setEndPointResultPromise] = useState([]);
+  const [endPointResultProcessed, setEndPointResultProcessed] = useState([]);
+  
+  useEffect(() => {
+    async function getProductsInfoFromApi() {
+      const endpointResultFromIds = await idProduct.map((product) => getProductsInfo(product))
+      setEndPointResultPromise(endpointResultFromIds) // Retorna os valores como Promise
+    }
+
+    getProductsInfoFromApi();
+  }, [idProduct])
+
+  useEffect(() => {
+    async function processPromiseResult() {
+      const resultado = await Promise.all(endPointResultPromise); // Trata os valores que retornam como Promise
+      setEndPointResultProcessed(resultado)
+    };
+
+    processPromiseResult();
+  }, [endPointResultPromise])
+
+  // Cart logic --------------
+
   const providerProductName = {
     productName,
     setProductName,
@@ -36,7 +60,8 @@ export function Provider({ children }) {
     loading,
     getProduts,
     getProductsId,
-    idProduct
+    idProduct,
+    endPointResultProcessed
   }
 
   return (
