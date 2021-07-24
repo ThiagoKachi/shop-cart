@@ -2,6 +2,7 @@ import React from 'react';
 
 import logoImg from '../../assets/online-shop.png';
 import cartImg from '../../assets/cart.svg';
+import { Link } from 'react-router-dom';
 
 import { Container } from './styles';
 import { Search } from '../Search';
@@ -16,12 +17,12 @@ export function Header() {
         </a>
       </div>
       <Search />
-      <div className="cart">
-        <p>Meu carrinho</p>
-        <a href="/">
-          <img src={ cartImg } alt="Carrinho" />
-        </a>
-      </div>
+      <Link to="/cart" className="link-button">
+        <div className="cart">
+            <p>Meu carrinho</p>
+            <img src={ cartImg } alt="Carrinho" />
+        </div>
+      </Link>
     </Container>
   )
 }

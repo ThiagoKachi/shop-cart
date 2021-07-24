@@ -23,8 +23,8 @@ export const Container = styled.div`
     }
   }
 
-  span {
-
+  .link-button {
+    text-decoration: none;
   }
 
   .cart {
