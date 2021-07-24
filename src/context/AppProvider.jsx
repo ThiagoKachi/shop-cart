@@ -11,7 +11,7 @@ export function Provider({ children }) {
 
   async function getProduts() {
     setLoading(true);
-    const productsList = await getProductsList(productName  === '' ? 'iphone' : productName);
+    const productsList = await getProductsList(productName === '' ? 'iphone' : productName);
     setProductDetail(productsList);
     setLoading(false);
   }

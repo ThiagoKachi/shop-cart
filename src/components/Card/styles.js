@@ -8,7 +8,7 @@ export const Container = styled.div`
   
   font-family: 'Encode Sans SC', sans-serif;
   position: relative;
-  
+
   .card {
     display: flex;
     flex-direction: row;
@@ -16,6 +16,18 @@ export const Container = styled.div`
     border-radius: 6px;
     border: 1px solid lightgray;
     padding: 5px;
+    animation: spinX 0.8s linear normal;
+  }
+
+  @keyframes spinX {
+    from {
+      margin-top: -10px;
+      opacity: 0.1;
+    }
+    to { 
+      margin-bottom: 0px;
+      opacity: 1;
+    }
   }
   
   img {

@@ -7,7 +7,7 @@ import { Cart } from './components/Cart';
 
 function App() {
   return (
-    <Switch>
+    <Switch >
       <Route exact path="/">
         <Home />
       </Route>
@@ -15,7 +15,7 @@ function App() {
         <Cart />
       </Route>
     </Switch>
-  );
+  )
 }
 
 export default App;

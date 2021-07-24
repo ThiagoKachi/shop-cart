@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 
 import { AppContext } from '../../context/AppContext';
 
@@ -6,6 +6,11 @@ import { Container } from './styles';
 
 export function Card() {
   const { loading, productsDetail } = useContext(AppContext)
+  const [idProduct, setIdProduct] = useState([]);
+
+  function getProductsId(id) {
+    setIdProduct([id, ...idProduct])
+  }
 
   return (
     <Container>
@@ -19,12 +24,12 @@ export function Card() {
                 <p>R$ { price }</p>
                 {original_price === null ? '' : <span className="original_price">R$ {original_price}</span>}
               </div>
-              <button>Adicionar ao carrinho</button>
+              <button onClick={() => getProductsId(id)}>Adicionar ao carrinho</button>
             </div>
           </div>
         ))
       ) : <span className="spinner"></span>}
-      {console.log(productsDetail)}
+      {console.log(productsDetail, idProduct)}
     </Container>
   )
 }
