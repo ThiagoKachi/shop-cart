@@ -127,7 +127,7 @@ export const Container = styled.div`
       color: #363636;
       font-weight: 500;
       cursor: pointer;
-      transition: transform 0.2s, filter 0.2s; // Mudar cor do botão
+      transition: transform 0.2s, filter 0.2s;
     }
 
     button:active {

@@ -6,7 +6,7 @@ import { Container } from './style';
 import trashImg from '../../assets/trash.svg';
 
 export function Cart() {
-  const { endPointResultProcessed, productPriceTotal } = useContext(AppContext)
+  const { endPointResultProcessed, productPriceTotal, removeItem } = useContext(AppContext)
 
   const cartEmptyText = <div className="emptyCart-message">O seu carrinho está vazio <span>Não sabe o que comprar? Milhões de produtos esperam por você!</span></div>
 
@@ -27,7 +27,7 @@ export function Cart() {
                 </div>
               </div>
               <div className="remove-product">
-                <button>
+                <button onClick={() => removeItem(product.id)}>
                   <img src={ trashImg } alt="Remover produto" />
                 </button>
               </div>
@@ -35,7 +35,7 @@ export function Cart() {
           ))
         ) : cartEmptyText}
         <div className="subtotal">
-          <button>Finalizar pedido</button>
+          <button onClick={() => console.log(endPointResultProcessed)}>Finalizar pedido</button>
           <p><span>Total</span> R$ {productPriceTotal}</p>
         </div>
       </Container>
