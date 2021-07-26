@@ -36,7 +36,7 @@ export const Container = styled.div`
       transition: transform 0.04s;
 
       &:active {
-        transform: scale(0.9); 
+        transform: scale(0.9);
       }
     }
   }

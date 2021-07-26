@@ -12,9 +12,12 @@ export function Home() {
   ) 
 }
 
-// Mudar estilo do card?
-// Fazer estilização do carrinho(cart)
-// Colocar número de itens no carrinho, se não tiver nenhum, colocar uma mensagem
+// Criar valor total do carrinho
+// Criar botão para remover item do carrinho
+// Mudar estilo do card
+// Adicionar icone de carrinho no botão "Adicionar ao carrinho"
+// Ao clicar no botão "Finalizar pedido", levar o usuário a uma página de agradecimento pela compra
+// Criar página de erro 404
 // Persistir dados ao recarregar a página(localstorage)
 // Fazer filtro na busca(habilitar search quando o campo estiver preenchido)
 // Fazer inifinit scroll na aplicação? 
