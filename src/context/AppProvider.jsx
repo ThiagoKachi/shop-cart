@@ -20,7 +20,7 @@ export function Provider({ children }) {
   }
 
   function getProductsId(id, price) {
-    setIdProduct([id, ...idProduct])
+    setIdProduct([id, ...idProduct]) // Função com bug
     setProductPrice([price, ...productPrice])
   }
 
@@ -64,7 +64,8 @@ export function Provider({ children }) {
   }, [productPrice])
 
   function removeItem(id) {
-    idProduct.filter((product) => product  === id)
+    const aaa = endPointResultProcessed.filter((product) => product.id !== id) // remover manualmente esse item do array
+    setEndPointResultProcessed(aaa)
   }
 
   // Cart logic --------------
@@ -77,10 +78,10 @@ export function Provider({ children }) {
     getProduts,
     getProductsId,
     idProduct,
-    // calcTotalPriceOfcart,
+    removeItem,
     productPriceTotal,
     productPrice,
-    endPointResultProcessed
+    endPointResultProcessed,
   }
 
   return (
