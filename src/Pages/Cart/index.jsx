@@ -27,7 +27,7 @@ export function Cart() {
                 </div>
               </div>
               <div className="remove-product">
-                <button onClick={() => removeItem(product.id)}>
+                <button onClick={() => removeItem(product.id, product.price)}>
                   <img src={ trashImg } alt="Remover produto" />
                 </button>
               </div>

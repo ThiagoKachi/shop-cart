@@ -63,9 +63,12 @@ export function Provider({ children }) {
     calcTotalPriceOfcart();
   }, [productPrice])
 
-  function removeItem(id) {
-    const aaa = endPointResultProcessed.filter((product) => product.id !== id) // remover manualmente esse item do array
-    setEndPointResultProcessed(aaa)
+  function removeItem(id, price) {
+    const filteredValues = endPointResultProcessed.filter((product) => product.id !== id)
+    const filteredPrice = endPointResultProcessed.map((product) => product.price === price && productPriceTotal - price)
+    setEndPointResultProcessed(filteredValues);
+    setIdProduct(filteredValues)
+    setProductPrice(filteredPrice)
   }
 
   // Cart logic --------------
