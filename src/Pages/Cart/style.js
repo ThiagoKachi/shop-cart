@@ -33,6 +33,10 @@ export const Container = styled.div`
     transition: box-shadow 0.2s;
 
     animation: spinY 0.8s linear normal;
+
+  }
+  &:last-child {
+    margin-bottom: 100px
   }
 
   .content:hover {

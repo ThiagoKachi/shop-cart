@@ -5,7 +5,7 @@ import { AppContext } from '../../context/AppContext';
 import { Container } from './styles';
 
 export function Card() {
-  const { loading, productsDetail, getProductsId, idProduct } = useContext(AppContext)
+  const { loading, productsDetail, getProductsId, idProduct, productPrice } = useContext(AppContext)
 
   return (
     <Container>
@@ -19,12 +19,12 @@ export function Card() {
                 <p>R$ { price }</p>
                 {original_price === null ? '' : <span className="original_price">R$ {original_price}</span>}
               </div>
-              <button onClick={() => getProductsId(id)}>Adicionar ao carrinho</button>
+              <button onClick={() => getProductsId(id, price)}>Adicionar ao carrinho</button>
             </div>
           </div>
         ))
       ) : <span className="spinner"></span>}
-      {console.log(productsDetail, idProduct)}
+      {console.log(productsDetail, idProduct, productPrice)}
     </Container>
   )
 }

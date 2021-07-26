@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Header } from '../Header';
-import { Card } from '../Card';
+import { Header } from '../../components/Header';
+import { Card } from '../../components/Card';
 
 export function Home() {
   return (
@@ -12,7 +12,6 @@ export function Home() {
   ) 
 }
 
-// Criar valor total do carrinho
 // Criar botão para remover item do carrinho
 // Mudar estilo do card
 // Adicionar icone de carrinho no botão "Adicionar ao carrinho"
