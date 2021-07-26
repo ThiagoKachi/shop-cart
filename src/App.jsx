@@ -2,8 +2,8 @@ import React from 'react';
 
 import { Switch, Route } from 'react-router-dom';
 
-import { Home } from './components/Home';
-import { Cart } from './components/Cart';
+import { Home } from './Pages/Home';
+import { Cart } from './Pages/Cart';
 
 function App() {
   return (

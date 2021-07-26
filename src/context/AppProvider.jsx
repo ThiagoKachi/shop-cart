@@ -9,6 +9,8 @@ export function Provider({ children }) {
   const [productsDetail, setProductDetail] = useState([]);
   const [loading, setLoading] = useState(false);
   const [idProduct, setIdProduct] = useState([]);
+  const [productPrice, setProductPrice] = useState([]);
+  const [productPriceTotal, setProductPriceTotal] = useState('');
 
   async function getProduts() {
     setLoading(true);
@@ -17,8 +19,9 @@ export function Provider({ children }) {
     setLoading(false);
   }
 
-  function getProductsId(id) {
+  function getProductsId(id, price) {
     setIdProduct([id, ...idProduct])
+    setProductPrice([price, ...productPrice])
   }
 
   useEffect(() => {
@@ -51,6 +54,19 @@ export function Provider({ children }) {
     processPromiseResult();
   }, [endPointResultPromise])
 
+  useEffect(() => {
+    function calcTotalPriceOfcart() {
+      const total = productPrice.length === 0 ? '00,00' : productPrice.reduce((total, currentElement) => total + currentElement)
+      setProductPriceTotal(total);
+    }
+
+    calcTotalPriceOfcart();
+  }, [productPrice])
+
+  function removeItem(id) {
+    idProduct.filter((product) => product  === id)
+  }
+
   // Cart logic --------------
 
   const providerProductName = {
@@ -61,6 +77,9 @@ export function Provider({ children }) {
     getProduts,
     getProductsId,
     idProduct,
+    // calcTotalPriceOfcart,
+    productPriceTotal,
+    productPrice,
     endPointResultProcessed
   }
 
