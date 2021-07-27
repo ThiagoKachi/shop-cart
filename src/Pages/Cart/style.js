@@ -70,16 +70,17 @@ export const Container = styled.div`
       h2, h3 {
         font-family: 'Encode Sans SC', sans-serif;
         color: #363636;
-        font-size: 30px;
       }
 
       h2 {
         width: 650px;
+        font-size: 24px;
       }
 
       h3 {
         font-size: 20px;
         margin-top: 10px;
+        color: #696969;
       }
     }
   }
@@ -121,17 +122,17 @@ export const Container = styled.div`
       padding: 15px;
       border-radius: 8px;
       border: 1px solid lightgray;
-      background: lightgray;
       font-size: 16px;
       font-family: 'Encode Sans SC', sans-serif;
-      color: #363636;
+      background: #7059BD;
+      color: white;
       font-weight: 500;
       cursor: pointer;
       transition: transform 0.2s, filter 0.2s;
     }
 
     button:active {
-      transform: scale(0.9);
+      transform: scale(0.99);
     }
 
     button:hover {

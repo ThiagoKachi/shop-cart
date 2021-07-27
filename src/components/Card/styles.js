@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 10px;
   margin-top: 40px;
   
@@ -11,12 +11,20 @@ export const Container = styled.div`
 
   .card {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     background: white;
     border-radius: 6px;
     border: 1px solid lightgray;
-    padding: 5px;
+    padding: 5px 0 0 10px;
     animation: spinX 0.8s linear normal;
+    position: relative;
+    height: 330px;
+    transition: box-shadow 0.2s;
+    width: 100%;
+  }
+
+  .card:hover {
+    box-shadow: 1px 5px 5px -1px rgba(0, 0, 0, 0.2);
   }
 
   @keyframes spinX {
@@ -33,6 +41,7 @@ export const Container = styled.div`
   img {
     width: 150px;
     height: 150px;
+    margin: 0 auto;
   }
   
   .infos {
@@ -40,15 +49,30 @@ export const Container = styled.div`
   }
 
   h1 {
-    font-size: 22px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 400;
     margin-bottom: 8px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Encode Sans SC', sans-serif;
+    width: 280px;
+    color: #363636;
+    height: 50px;
   }
 
   .prices {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .price-original-price {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .free-shipping {
+    margin-right: 20px;
+    font-size: 14px;
+    color: #4CA752;
   }
 
   .original_price {
@@ -58,31 +82,45 @@ export const Container = styled.div`
   }
 
   p {
-    margin-top: 2px;
+    margin-top: 5px;
     margin-right: 5px;
-    font-size: 20px;
+    font-size: 17px;
     letter-spacing: 0.4px;
+    color: #696969;
   }
 
   button {
     font-family: 'Encode Sans SC', sans-serif;
+    font-size: 16px;
     cursor: pointer;
-    padding: 12px 15px;
+    padding: 12px 35px;
     margin-top: 12px;
     border: none;
-    border-radius: 6px;
-    color: black;
-    background: lightgray;
-    width: 420px;
-    transition: filter 0.3s;
+    border-radius: 0 0 6px 6px;
+    color: white;
+    background: #7059BD;
+    width: 100%;
+    transition: filter 0.3s, background 0.3s;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+
+    img {
+      width: 25px;
+      margin-right: 8px;
+    }
   }
 
   button:active {
-    transform: scale(0.99); 
+    filter: brightness(0.9);
   }
 
-  button:hover {
-    filter: brightness(0.95);
+  .svg-icon {
+    filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(86deg) brightness(100%) contrast(119%);
   }
 
   .spinner {

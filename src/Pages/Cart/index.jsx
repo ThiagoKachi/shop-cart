@@ -36,7 +36,7 @@ export function Cart() {
         ) : cartEmptyText}
         <div className="subtotal">
           <button onClick={() => console.log(endPointResultProcessed)}>Finalizar pedido</button>
-          <p><span>Total</span> R$ {productPriceTotal}</p>
+          <p><span>Total</span> R$ {parseFloat(productPriceTotal).toFixed(2).replace('.', ',')}</p>
         </div>
       </Container>
     </>
