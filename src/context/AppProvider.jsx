@@ -14,13 +14,13 @@ export function Provider({ children }) {
 
   async function getProduts() {
     setLoading(true);
-    const productsList = await getProductsList(productName === '' ? 'iphone' : productName); // Fazer modificação
+    const productsList = await getProductsList(productName === '' ? 'iphone' : productName);
     setProductDetail(productsList);
     setLoading(false);
   }
 
   function getProductsId(id, price) {
-    setIdProduct([id, ...idProduct]) // Função com bug
+    setIdProduct([id, ...idProduct])
     setProductPrice([price, ...productPrice])
   }
 
@@ -30,7 +30,7 @@ export function Provider({ children }) {
       setProductDetail(productsList);
     }
     getProdutsListToHome()
-  },[productName])
+  },[])
 
   // Cart logic -------------
   const [endPointResultPromise, setEndPointResultPromise] = useState([]);
@@ -63,12 +63,12 @@ export function Provider({ children }) {
     calcTotalPriceOfcart();
   }, [productPrice])
 
-  function removeItem(id, price) {
+  function removeItem(id) {
     const filteredValues = endPointResultProcessed.filter((product) => product.id !== id)
-    const filteredPrice = endPointResultProcessed.map((product) => product.price === price && productPriceTotal - price)
     setEndPointResultProcessed(filteredValues);
-    setIdProduct(filteredValues)
-    setProductPrice(filteredPrice)
+    setIdProduct(filteredValues.map((e) => e.id)) // pegar somente o id
+    setProductPrice(filteredValues.map((e) => e.price))
+    console.log(filteredValues)
   }
 
   // Cart logic --------------

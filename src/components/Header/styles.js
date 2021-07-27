@@ -16,6 +16,7 @@ export const Container = styled.div`
       margin-right: 10px;
       font-weight: 700;
       color: #363636;
+      text-shadow: 1px 1px 1px #7059BD;
     }
 
     img {
@@ -45,17 +46,17 @@ export const Container = styled.div`
       width: 30px;
       cursor: pointer;
       position: absolute;
-      top: 4px;
+      top: 6px;
       left: 126px;
     }
 
     span {
-      font-size: 14px;
+      font-size: 12px;
       margin-left: 40px;
-      color: #363636;
       font-weight: 500;
       font-family: 'Encode Sans SC', sans-serif;
       margin-top: 10px;
+      color: #363636;
     }
   }
 
