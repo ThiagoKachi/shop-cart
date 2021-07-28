@@ -4,9 +4,10 @@ import { Header } from '../../components/Header';
 import { AppContext } from '../../context/AppContext';
 import { Container } from './style';
 import trashImg from '../../assets/trash.svg';
+import { OrderDetails } from '../OrderDetails';
 
 export function Cart() {
-  const { endPointResultProcessed, productPriceTotal, removeItem } = useContext(AppContext)
+  const { endPointResultProcessed, productPriceTotal, removeItem, openModal } = useContext(AppContext)
 
   const cartEmptyText = <div className="emptyCart-message">O seu carrinho está vazio <span>Não sabe o que comprar? Milhões de produtos esperam por você!</span></div>
 
@@ -35,10 +36,11 @@ export function Cart() {
           ))
         ) : cartEmptyText}
         <div className="subtotal">
-          <button onClick={() => console.log(endPointResultProcessed)}>Finalizar pedido</button>
+          <button onClick={openModal}>Finalizar pedido</button>
           <p><span>Total</span> R$ {parseFloat(productPriceTotal).toFixed(2).replace('.', ',')}</p>
         </div>
       </Container>
+      <OrderDetails />
     </>
   )
 }

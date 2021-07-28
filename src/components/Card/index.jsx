@@ -11,7 +11,7 @@ export function Card() {
   return (
     <Container>
       {!loading ? (
-        productsDetail.map(({ title, thumbnail, price, id, original_price, shipping: { free_shipping } }) => (
+        productsDetail.map(({ title, thumbnail, price, id, original_price, shipping: { free_shipping } }, key) => (
           <div key={ id }>
             <div className="card">
               <img src={ thumbnail } alt="Foto do produto" />

@@ -71,12 +71,28 @@ export function Provider({ children }) {
     console.log(filteredValues)
   }
 
-  // Cart logic --------------
+  // Modal logic --------------
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  function backToShop() {
+    setIdProduct([]);
+    setProductPrice([])
+    closeModal()
+  }
 
   const providerProductName = {
     productName,
     setProductName,
     productsDetail,
+    backToShop,
     loading,
     getProduts,
     getProductsId,
@@ -85,6 +101,9 @@ export function Provider({ children }) {
     productPriceTotal,
     productPrice,
     endPointResultProcessed,
+    modalIsOpen,
+    openModal,
+    closeModal
   }
 
   return (
