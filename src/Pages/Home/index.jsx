@@ -12,8 +12,8 @@ export function Home() {
   ) 
 }
 
-// Ao clicar no botão "Finalizar pedido", levar o usuário a uma página de agradecimento pela compra
-// Mudar home page?
+// Mudar home page? (Colocar categorias)
 
 // Persistir dados ao recarregar a página(localstorage)
 // Fazer inifinit scroll na aplicação? 
+// Deixar o mais responsível que conseguir
