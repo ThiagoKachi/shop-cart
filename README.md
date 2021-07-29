@@ -52,6 +52,3 @@ ___
 <img src="https://i.postimg.cc/hGQRdbFh/2021-07-29-20-22-43.gif" width="700" height="500" />
 <p>Finalizando pedido</p>
 <img src="https://i.postimg.cc/bwMKpDGP/2021-07-29-20-23-17.gif" width="700" height="500" />
-=======
-## Em construção... 
-<img src="https://image.flaticon.com/icons/png/512/1275/1275479.png" />
