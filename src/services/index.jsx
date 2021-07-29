@@ -12,3 +12,14 @@ export async function getProductsInfo(product) {
   return data;
 }
 
+export async function getCategories() {
+  const currencyResult = await axios.get('https://api.mercadolibre.com/sites/MLB/categories')
+  const { data } = currencyResult
+  return data;
+}
+
+export async function getCategoriesList(id) {
+  const currencyResult = await axios.get(`https://api.mercadolibre.com/sites/MLB/search?category=${id}`)
+  const { data } = currencyResult
+  return data;
+}

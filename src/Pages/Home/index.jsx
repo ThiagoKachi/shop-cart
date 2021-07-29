@@ -6,14 +6,10 @@ import { Card } from '../../components/Card';
 export function Home() {
   return (
     <>
-      <Header searchBar myCart />
+      <Header searchBar myCart categories />
       <Card />
     </>
   ) 
 }
 
-// Mudar home page? (Colocar categorias)
-
-// Persistir dados ao recarregar a página(localstorage)
-// Fazer inifinit scroll na aplicação? 
-// Deixar o mais responsível que conseguir
+// Mudar itens da página principal para ofertas

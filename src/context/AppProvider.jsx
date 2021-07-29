@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { AppContext } from './AppContext';
 
-import { getProductsList, getProductsInfo } from '../services';
+import { getProductsList, getProductsInfo, getCategories, getCategoriesList } from '../services';
 
 export function Provider({ children }) {
   const [productName, setProductName] = useState('');
@@ -88,6 +88,35 @@ export function Provider({ children }) {
     closeModal()
   }
 
+  // ------- Categories logic
+  const [categoriesList, setCategoriesList] = useState([]);
+  const [categoriesId, setCategoriesId] = useState([]);
+  const [open, setOpen] = useState(true);
+
+  useEffect(() => {
+    async function getCatgoriesList() {
+      const categoriesList = await getCategories();
+      setCategoriesList(categoriesList)
+    }
+    getCatgoriesList()
+  }, [])
+
+  function getCategoryId(id) {
+    setCategoriesId(id)
+    setOpen(true)
+  }
+
+  useEffect(() => {
+    async function getCategories() {
+      setLoading(true);
+      const { results } = await getCategoriesList(categoriesId);
+      setProductDetail(results);
+      setLoading(false);
+    }
+
+    getCategories();
+  }, [categoriesId])
+
   const providerProductName = {
     productName,
     setProductName,
@@ -103,7 +132,12 @@ export function Provider({ children }) {
     endPointResultProcessed,
     modalIsOpen,
     openModal,
-    closeModal
+    closeModal,
+    categoriesList,
+    getCategoryId,
+    categoriesId,
+    open,
+    setOpen
   }
 
   return (
