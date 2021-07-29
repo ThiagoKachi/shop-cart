@@ -91,13 +91,10 @@ export const Container = styled.div`
 
   button {
     font-family: 'Encode Sans SC', sans-serif;
-    font-size: 16px;
     cursor: pointer;
-    padding: 12px 35px;
     margin-top: 12px;
     border: none;
     border-radius: 0 0 6px 6px;
-    color: white;
     background: #7059BD;
     width: 100%;
     transition: filter 0.3s, background 0.3s;
@@ -105,13 +102,21 @@ export const Container = styled.div`
     bottom: 0;
     left: 0;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     height: 50px;
-
+    
     img {
       width: 25px;
-      margin-right: 8px;
+      margin: 0 auto;
+      margin-right: -30px;
+    }
+    
+    p {
+      font-size: 14px;
+      margin: 0 auto;
+      color: white;
     }
   }
 
@@ -131,8 +136,8 @@ export const Container = styled.div`
     border-radius: 50%;
     animation: spin 1s linear infinite;
     position: absolute;
-    top: 100px;
-    left: 580px;
+    top: 80%;
+    left: 50%;
   }
 
   @keyframes spin {

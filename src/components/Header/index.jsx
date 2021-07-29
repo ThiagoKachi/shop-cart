@@ -7,9 +7,9 @@ import { Link } from 'react-router-dom';
 import { Container } from './styles';
 import { Search } from '../Search';
 import { AppContext } from '../../context/AppContext';
+import { CategoriesList } from '../../components/CategoriesList';
 
-
-export function Header({ searchBar, myCart }) {
+export function Header({ searchBar, myCart, categories }) {
   const { endPointResultProcessed } = useContext(AppContext);
 
   return (
@@ -21,6 +21,7 @@ export function Header({ searchBar, myCart }) {
         </div>
       </Link>
       {searchBar ? <Search /> : <span />}
+      {categories ? <CategoriesList /> : <span />}
       {myCart ? (
         <Link to="/cart" className="link-button">
           <div className="cart">
@@ -33,5 +34,6 @@ export function Header({ searchBar, myCart }) {
         </Link>
       ) : <h1 className="my-cart-title">Meu carrinho</h1>}
     </Container>
+    
   )
 }
