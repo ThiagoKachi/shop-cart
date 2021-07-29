@@ -11,5 +11,3 @@ export function Home() {
     </>
   ) 
 }
-
-// Mudar itens da página principal para ofertas

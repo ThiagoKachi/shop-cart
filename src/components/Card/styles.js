@@ -144,3 +144,14 @@ export const Container = styled.div`
     to { transform: rotate(360deg); }
   }
 `;
+
+export const Category = styled.div`
+  .category-name {
+    font-family: 'Encode Sans SC', sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.4px;
+    color: #696969;
+    margin-top: 10px;
+    margin-bottom: -14px;
+  }
+`;

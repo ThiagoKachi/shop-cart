@@ -86,12 +86,14 @@ export function Provider({ children }) {
     setIdProduct([]);
     setProductPrice([])
     closeModal()
+    setGetCategoryName('')
   }
 
   // ------- Categories logic
   const [categoriesList, setCategoriesList] = useState([]);
   const [categoriesId, setCategoriesId] = useState([]);
   const [open, setOpen] = useState(true);
+  const [getCategoryName, setGetCategoryName] = useState('');
 
   useEffect(() => {
     async function getCatgoriesList() {
@@ -101,9 +103,11 @@ export function Provider({ children }) {
     getCatgoriesList()
   }, [])
 
-  function getCategoryId(id) {
-    setCategoriesId(id)
-    setOpen(true)
+  function getCategoryId(id, name) {
+    setCategoriesId(id);
+    setOpen(true);
+    setProductName('');
+    setGetCategoryName(name)
   }
 
   useEffect(() => {
@@ -137,7 +141,8 @@ export function Provider({ children }) {
     getCategoryId,
     categoriesId,
     open,
-    setOpen
+    setOpen,
+    getCategoryName
   }
 
   return (
