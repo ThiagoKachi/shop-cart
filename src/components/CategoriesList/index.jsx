@@ -16,7 +16,7 @@ export function CategoriesList() {
         <img src={ downImg } alt="Categorias" />
       </button>
       <div className={open ? "dropdown-menu show" : "dropdown-menu"}>
-        {categoriesList.map(({ name, id }) => <button key={ id } onClick={() => getCategoryId(id)}>{name}</button>)}
+        {categoriesList.map(({ name, id }) => <button key={ id } onClick={() => getCategoryId(id, name)}>{name}</button>)}
       </div>
     </Container>
   )

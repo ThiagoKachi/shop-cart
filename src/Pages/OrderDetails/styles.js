@@ -90,7 +90,7 @@ export const Container = styled.div`
       }
 
       h2 {
-        width: 650px;
+        width: 520px;
         font-size: 24px;
       }
 

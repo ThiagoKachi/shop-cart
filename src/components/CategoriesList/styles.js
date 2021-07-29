@@ -24,6 +24,7 @@ export const Container = styled.div`
   }
 
   div {
+    animation: spinX 0.2s linear normal;
     position: absolute;
     overflow-y: scroll;
     height: 70vh;
@@ -48,6 +49,16 @@ export const Container = styled.div`
 
     button:hover {
       background: #7059BD;
+    }
+  }
+    @keyframes spinX {
+    from {
+      margin-top: 5px;
+      opacity: 0.1;
+    }
+    to { 
+      margin-bottom: 0px;
+      opacity: 1;
     }
   }
 `;
